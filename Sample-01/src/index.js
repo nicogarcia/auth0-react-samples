@@ -7,6 +7,7 @@ import { Auth0Provider } from "@auth0/auth0-react";
 import history from "./utils/history";
 import { getConfig } from "./config";
 
+//quickstart:start:step:add-provider
 const onRedirectCallback = (appState) => {
   history.push(
     appState && appState.returnTo ? appState.returnTo : window.location.pathname
@@ -26,14 +27,19 @@ const providerConfig = {
     ...(config.audience ? { audience: config.audience } : null),
   },
 };
+//quickstart:end:step:add-provider
 
 const root = createRoot(document.getElementById('root'));
 root.render(
+  //quickstart:start:step:add-provider
   <Auth0Provider
     {...providerConfig}
   >
+  {/*quickstart:end:step:add-provider*/}
     <App />
+  {/*quickstart:start:step:add-provider*/}
   </Auth0Provider>,
+  //quickstart:end:step:add-provider
 );
 
 // If you want your app to work offline and load faster, you can change
